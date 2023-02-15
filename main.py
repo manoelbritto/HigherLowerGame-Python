@@ -1,10 +1,9 @@
 import art
 from game_data import data
 import random as rd
+from replit import clear
 
 start_score = 0
-
-
 def select_question(position):
     """function that return the question"""
     question = data[position]['name'] + ", " + data[position]['description'] + ", " + data[position]['country']
@@ -37,13 +36,14 @@ def game():
             question_first = rd.randint(0, 49)
         print(f"Option A: {select_question(question_first)}")
         score_first = get_score(question_first)
-        print(score_first)
+        # print(score_first)
         print(art.vs)
         print(f"Option B: {select_question(question_second)}")
         score_second = get_score(question_second)
-        print (score_second)
+        # print (score_second)
 
-        option = input("What is your option A or B? ").lower()
+        option = input("Who has more followers. What is your option A or B? ").lower()
+        clear()
 
         if option == 'a':
             if score_first > score_second:
@@ -56,8 +56,9 @@ def game():
                 start_game = 1
             else:
                 print(f"You lose \nYour score was {track_score(start_game)}")
-
                 continue_game = False
+
+
 
 
 game()
